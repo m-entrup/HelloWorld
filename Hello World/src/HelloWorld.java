@@ -1,5 +1,5 @@
 /**
- * Gibt "Hello World!" in der Console aus. 
+ * Gibt "Hallo Welt!" in der Konsole aus. 
  * 
  * @author Michael Epping
  */
