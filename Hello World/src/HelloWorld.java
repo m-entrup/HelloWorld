@@ -1,7 +1,7 @@
 /**
  * Gibt "Hello World!" in der Console aus. 
  * 
- * @author m_eppi02
+ * @author Michael Epping
  */
 public class HelloWorld {
 
