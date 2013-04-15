@@ -3,7 +3,7 @@
  * 
  * @author Michael Epping
  */
-public class HelloWorld {
+public class HalloWelt {
 
     /**
      * @param args
