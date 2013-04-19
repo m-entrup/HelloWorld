@@ -1,4 +1,4 @@
-HelloWorld - A repository for testing purposes
+m-epping/HelloWorld - A repository for testing purposes
 
 Copyright (c) 2013, Michael Epping
 All rights reserved.
