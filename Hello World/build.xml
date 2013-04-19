@@ -1,14 +1,9 @@
 <project name="plugin_HelloWorld" default="" basedir=".">
 	<description>
-        Spec_Correction build file
+        HelloWorld build file
     </description>
-	<property name="src" location="src" />
+
 	<property name="build" location="bin" />
-	<property name="dist" location="dist" />
-	<property name="archiv" location="archiv" />
-
-	<property name="pluginsDir" location="$basedir/../../../IJ/plugins/" />
-
 	<property name="user.name" value="Michael Epping" />
 
 	<target name="main" depends="compress" description="Main target">
@@ -25,6 +20,6 @@
 				<attribute name="Built-By" value="${user.name}" />
 			</manifest>
 		</jar>
-		<move file="plugin_HelloWorld.jar" toDir="${pluginsDir}" />
+		<move file="plugin_HelloWorld.jar" toDir="${ij.plugins}" />
 	</target>
 </project>
