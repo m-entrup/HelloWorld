@@ -25,6 +25,6 @@
 				<attribute name="Built-By" value="${user.name}" />
 			</manifest>
 		</jar>
-		<copy file="plugin_HelloWorld.jar" toDir="${pluginsDir}" />
+		<move file="plugin_HelloWorld.jar" toDir="${pluginsDir}" />
 	</target>
 </project>
