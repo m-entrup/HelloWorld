@@ -27,6 +27,7 @@
 
 package normalize;
 
+import ij.IJ;
 import ij.ImagePlus;
 import ij.gui.WaitForUserDialog;
 import ij.plugin.filter.PlugInFilter;
@@ -48,11 +49,19 @@ public class Wait4User implements PlugInFilter {
 
     @Override
     public int setup(String arg, ImagePlus imp) {
+	if (arg == "final") {
+	    IJ.showMessage("Final processing!");
+	    return DONE;
+	}
 	if (imp.getStackSize() == 1) {
 	    return DONE;
 	}
 	this.imp = imp;
-	return DOES_ALL;
+	if (!IJ.showMessageWithCancel("Choise", "Call the method run()?")) {
+	    // FINAL_PROCESSING has no effect if it is used in combination with DONE.
+	    return FINAL_PROCESSING + DONE;
+	}
+	return FINAL_PROCESSING + DOES_ALL;
     }
 
     @Override
