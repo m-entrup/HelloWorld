@@ -89,15 +89,15 @@ public class DriftDetection implements ExtendedPlugInFilter {
 	}
 	switch (showModeDialog(command)) {
 	case AUTOMATIC:
-	    IJ.showStatus("Automatic drift detection has been selected.");
+	    IJ.showMessage("Automatic drift detection has been selected.");
 	    // TODO implement automatic drift detection
 	    break;
 	case MANUAL:
-	    IJ.showStatus("Manual drift detection has been selected.");
+	    IJ.showMessage("Manual drift detection has been selected.");
 	    // TODO implement manual drift detection
 	    break;
 	default:
-	    IJ.showStatus("Drift detection has been canceled.");
+	    IJ.showMessage("Drift detection has been canceled.");
 	    return NO_CHANGES | DONE;
 	}
 	return flags;
