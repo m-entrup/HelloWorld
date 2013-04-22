@@ -30,7 +30,8 @@ package normalize;
 import ij.IJ;
 import ij.ImagePlus;
 import ij.gui.WaitForUserDialog;
-import ij.plugin.filter.PlugInFilter;
+import ij.plugin.filter.ExtendedPlugInFilter;
+import ij.plugin.filter.PlugInFilterRunner;
 import ij.process.ImageProcessor;
 
 import java.awt.Button;
@@ -43,7 +44,7 @@ import java.awt.event.ActionListener;
  * @author Michael Epping <michael.epping@uni-muenster.de>
  * 
  */
-public class Wait4User implements PlugInFilter {
+public class Wait4User implements ExtendedPlugInFilter {
 
     private ImagePlus imp;
 
@@ -53,14 +54,7 @@ public class Wait4User implements PlugInFilter {
 	    IJ.showMessage("Final processing!");
 	    return DONE;
 	}
-	if (imp.getStackSize() == 1) {
-	    return DONE;
-	}
 	this.imp = imp;
-	if (!IJ.showMessageWithCancel("Choise", "Call the method run()?")) {
-	    // FINAL_PROCESSING has no effect if it is used in combination with DONE.
-	    return FINAL_PROCESSING + DONE;
-	}
 	return FINAL_PROCESSING + DOES_ALL;
     }
 
@@ -104,6 +98,33 @@ public class Wait4User implements PlugInFilter {
 	    imp.updateAndDraw();
 	}
 
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see ij.plugin.filter.ExtendedPlugInFilter#showDialog(ij.ImagePlus, java.lang.String,
+     * ij.plugin.filter.PlugInFilterRunner)
+     */
+    @Override
+    public int showDialog(ImagePlus imp, String command, PlugInFilterRunner pfr) {
+	if (imp.getStackSize() == 1) {
+	    return DONE;
+	}
+	if (!IJ.showMessageWithCancel("Choise", "Call the method run()?")) {
+	    // FINAL_PROCESSING has no effect if it is used in combination with DONE.
+	    return DONE;
+	}
+	return FINAL_PROCESSING + DOES_ALL;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see ij.plugin.filter.ExtendedPlugInFilter#setNPasses(int)
+     */
+    @Override
+    public void setNPasses(int nPasses) {
     }
 
 }
