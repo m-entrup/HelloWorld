@@ -37,10 +37,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * This plugin is used to test the operations "normalize" and "translate" while
- * a WaitForUserDialog is active.
+ * This plugin is used to test the operations "normalize" and "translate" while a WaitForUserDialog is active.
  * 
- * @author m_eppi02
+ * @author Michael Epping <michael.epping@uni-muenster.de>
  * 
  */
 public class Wait4User implements PlugInFilter {
@@ -92,8 +91,7 @@ public class Wait4User implements PlugInFilter {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 	    int mid = Math.round(1.0f * imp.getStackSize() / 2);
-	    imp.getStack().getProcessor(mid)
-		    .translate(imp.getWidth() / 10, imp.getHeight() / 10);
+	    imp.getStack().getProcessor(mid).translate(imp.getWidth() / 10, imp.getHeight() / 10);
 	    imp.updateAndDraw();
 	}
 
